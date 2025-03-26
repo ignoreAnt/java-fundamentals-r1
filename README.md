@@ -10,12 +10,19 @@ This is a simple **Java Maven** project designed for learning the **fundamentals
 - And more...
 
 ## 📂 Project Structure
-java-fundamentals-r1/ 
-    │── src/ │
-        ├── main/java/com/example/ # Source code 
-    │   ├── test/java/com/example/ # Unit tests 
-    │── pom.xml # Maven configuration 
-    │── README.md # Project documentation
+java-fundamentals-r1/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── example/    # Source code
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── example/    # Unit tests
+├── pom.xml       # Maven configuration
+├── README.md     # Project documentation
+
 
 
 ## 🔧 Prerequisites
@@ -47,4 +54,4 @@ Before you begin, ensure you have the following installed:
    ```
 
 ## 📝 License
-This project is licensed under the Apache License 2.0. For more information, see the [LICENSE](LICENSE) file.
+This project is licensed under the Apache License 2.0. For more information, see the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0) file.
