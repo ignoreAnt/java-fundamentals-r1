@@ -1,5 +1,7 @@
 package com.aakash.practice;
 
+import java.util.Objects;
+
 class Dog {
 
     private int size; // Instance variable representing the dog's size
@@ -43,9 +45,21 @@ class Dog {
     @Override
     public String toString() {
         return "Dog{" +
-                "size=" + size +
-                ", name='" + name + '\'' +
+                "size=" + this.size +
+                ", name='" + this.name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Dog dog = (Dog) o;
+        return size == dog.size && Objects.equals(name, dog.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(size, name);
     }
 }
 
