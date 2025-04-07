@@ -2,7 +2,7 @@ package com.aakash.abstraction.instruction;
 
 public class Animal {
 
-    private String name;
+    protected String name;
 
     private int age;
 

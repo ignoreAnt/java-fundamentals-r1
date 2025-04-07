@@ -1,16 +1,23 @@
 package com.aakash.classes.practice;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Person {
 
+    private final String salutation = "Mr.";
     private String name;
 
     private int[] scores;
 
     public Person(String name, int[] scores) {
-        this.name = name;
+        this.name = Objects.requireNonNullElse(name, "Unkown");
+//        this.name = name;
         this.scores = scores;
+    }
+
+    public Person(){
+        this("A Person", new int[0]);
     }
 
     public String getName() {
@@ -26,6 +33,7 @@ public class Person {
     }
 
     public void setScores(int[] scores) {
+        var s = "SomeString";
         this.scores = scores;
     }
 
