@@ -1,5 +1,7 @@
 package com.aakash.practice;
 
+import java.util.Random;
+
 public class PhraseOMatic {
 
     public static void main(String[] args) {
@@ -22,7 +24,7 @@ public class PhraseOMatic {
 
         // Step 3: Generate three random numbers
 
-        java.util.Random randomGenerator = new java.util.Random();
+        Random randomGenerator = new Random();
 
         int rand1 = randomGenerator.nextInt(oneLength);
 
