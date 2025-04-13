@@ -5,10 +5,10 @@ public class ShapeTest {
 //        Circle circle = new Circle();
 //        Square square = new Square();
 
-        Shape circle = new Circle();
-        Shape square = new Square();
-        Shape triangle = new Triangle();
-
+        Shape circle = new Circle("red");
+        Shape square = new Square("Black");
+        Shape triangle = new Triangle("blue");
+        String s = "Hello";
         Shape[] shapes = {circle, square, triangle};
 
         for (Shape shape: shapes) {

@@ -1,6 +1,6 @@
 package com.aakash.abstraction.instruction;
 
-public class Shark extends Animal implements Swimable {
+public class Shark extends Animal implements Swimable{
     public Shark(String name) {
         super(name);
     }
@@ -11,7 +11,12 @@ public class Shark extends Animal implements Swimable {
     }
 
     @Override
+    public void eat() {
+
+    }
+
+    @Override
     public void swim() {
-        System.out.println("shark is swimming");
+        System.out.println("Shark is swimming");
     }
 }

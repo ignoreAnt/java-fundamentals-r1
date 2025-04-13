@@ -1,6 +1,6 @@
 package com.aakash.abstraction.instruction;
 
-public class Animal {
+public abstract class Animal {
 
     protected String name;
 
@@ -26,9 +26,11 @@ public class Animal {
         this.age = age;
     }
 
-    public void makeSound() {
-        System.out.println("Animal makes a sound");
+    public abstract void makeSound();
+
+    public abstract void eat();
+
+    public void sleeping(){
+        System.out.println("Sleeping");
     }
-
-
 }

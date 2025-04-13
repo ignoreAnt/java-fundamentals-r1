@@ -10,6 +10,8 @@ public class Person {
 
     private int[] scores;
 
+    private Address address;
+
     public Person(String name, int[] scores) {
         this.name = Objects.requireNonNullElse(name, "Unkown");
 //        this.name = name;

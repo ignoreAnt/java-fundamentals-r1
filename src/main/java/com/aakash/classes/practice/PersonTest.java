@@ -19,5 +19,8 @@ public class PersonTest {
         System.out.println(original);
         System.out.println(shallowCopy);
 
+        Student student = new Student();
+        student.calculateMarks();
+
     }
 }

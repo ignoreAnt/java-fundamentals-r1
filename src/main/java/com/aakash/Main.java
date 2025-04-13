@@ -45,6 +45,7 @@ public class Main {
 //        System.out.println(television2.getBrand());
 
         Student student = new Student();
+//        student.calculateMarks();
         Employee employee = new Employee("Emp001");
         employee.work();
     }
