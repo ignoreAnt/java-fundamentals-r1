@@ -3,70 +3,72 @@ package com.aakash.challenges;
 import java.util.Scanner;
 
 public class PwdChecker {
-    static boolean isValid(String pwd) {
+
+    public static boolean isValid(String pwd) throws Exception {
         if (pwd.length() < 8) {
-            System.out.println("Password too short. Min 8 characters required" );
-            return false;
+            throw new PasswordTooShortException("Password too short. Min 8 characters required.");
         }
         if (!pwd.contains("@") && !pwd.contains("#") &&
                 !pwd.contains("$")  && !pwd.contains("%") &&
                 !pwd.contains("^") && !pwd.contains("&") &&
                 !pwd.contains("*") && !pwd.contains("-") && !pwd.contains("_")
         ) {
-            System.out.println("Invalid password. Need any special character '@,#,$,*,-,&,_,%,^'");
-            return false;
+            throw new InvalidCharacterException("Invalid password. Need any special character '@,#,$,*,-,&,_,%,^'.");
         }
+
         boolean hasUpper = false;
         boolean hasLower = false;
         boolean hasNumber = false;
 
-        for (int i = 0; i < pwd.length(); i++) {
-            if ((int)pwd.charAt(i) >= 65 && (int)pwd.charAt(i) <= 90) {
+        for (char c : pwd.toCharArray()) {
+            if (Character.isUpperCase(c)) {
                 hasUpper = true;
             }
-            if ((int)pwd.charAt(i) >= 97 && (int)pwd.charAt(i) <= 122) {
-               hasLower = true;
+            if (Character.isLowerCase(c)) {
+                hasLower = true;
             }
-            if ((int)pwd.charAt(i) >= 48 && (int)pwd.charAt(i) <= 57) {
+            if (Character.isDigit(c)) {
                 hasNumber = true;
             }
         }
 
         if (!hasUpper) {
-            System.out.println("Password should have at least 1 upper case");
-            return false;
+            throw new MissingUpperCaseException("Password should have at least 1 upper case letter.");
         }
         if (!hasLower) {
-            System.out.println("Password should have at least 1 lowercase");
-            return false;
+            throw new MissingLowerCaseException("Password should have at least 1 lowercase letter.");
         }
         if (!hasNumber) {
-            System.out.println("Password should have at least 1 number");
-            return false;
+            throw new MissingNumberException("Password should have at least 1 number.");
         }
+
         return true;
     }
 
     public static void main(String[] args) {
-
         boolean validPwd = false;
-        Scanner sc = new Scanner(System.in);;
+        Scanner sc = new Scanner(System.in);
         int count = 0;
-        while (count <= 5) {
-            System.out.println("Enter your password: ");
-            String pwd = sc.nextLine();
-            validPwd = isValid(pwd);
-            if (validPwd) {
-                System.out.println("Password valid");
-                break;
-            } else {
-                if (count == 5) {
-                    System.out.println("Maximum tries reached. Exiting");
-                } else  {
-                    System.out.println("Password invalid. Please try again");
+
+        while (count < 5) {
+            try {
+                System.out.println("Enter your password: ");
+                String pwd = sc.nextLine();
+                validPwd = isValid(pwd);
+                if (validPwd) {
+                    System.out.println("Password valid");
+                    break;
                 }
-                count++;
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
             }
+
+            if (count == 4) {
+                System.out.println("Maximum tries reached. Exiting.");
+            } else {
+                System.out.println("Password invalid. Please try again.");
+            }
+            count++;
         }
         sc.close();
     }
